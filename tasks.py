@@ -48,9 +48,8 @@ def open_robot_order_website():
 
 def get_orders():
     """Downloads orders file and retunrs it"""
-    if not os.path.exists("orders.csv"):
-        http = HTTP()
-        http.download(url="https://robotsparebinindustries.com/orders.csv", overwrite=True)
+    http = HTTP()
+    http.download(url="https://robotsparebinindustries.com/orders.csv", overwrite=True)
     
     tables = Tables()
     data = tables.read_table_from_csv("orders.csv", header=True)
